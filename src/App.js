@@ -1,5 +1,6 @@
-
-import './App.css';
+import "./App.css";
+import Gallery from "./components/Gallery";
+import Searchbar from "./components/Searchbar";
 
 function App() {
   return (
@@ -8,6 +9,8 @@ function App() {
         <p>Hi</p>
         <p>testing pull</p>
       </header>
+      <Searchbar />
+      <Gallery />
     </div>
   );
 }
