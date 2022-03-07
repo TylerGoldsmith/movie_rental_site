@@ -1,9 +1,16 @@
+// dependencies
+import React from 'react';
+// import components
 import GalleryItem from "./GalleryItem";
 
-const Gallery = () => {
+function Gallery(props) {
 
-    //map through gallery items
-    
-  return <GalleryItem />; //change to display once map is running
+
+  return (
+    <div>
+      <h1>Gallery Test</h1>
+  {<GalleryItem /> /* change to display once map is running  */}
+  </div>
+  )
 };
 export default Gallery;
