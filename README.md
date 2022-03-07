@@ -14,6 +14,13 @@ Type "touch .env",
 ## type: "code ." to open in text editor of choice
 ## In the .env file, type PORT:3000
 
+# Node Modules to install for testing
+## npm install --save-dev react-testing-library
+
 # Sources
+## React Testing
+https://testing-library.com/docs/queries/about/
+
+
 
 # Project Overview
