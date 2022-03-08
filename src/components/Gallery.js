@@ -1,16 +1,25 @@
 // dependencies
-import React from 'react';
-// import components
-import GalleryItem from "./GalleryItem";
+import { useContext } from 'react';
+// context
+import { DataContext } from '../context/DataContext'
+// import controller
+import GalleryItem from './GalleryItem';
 
-function Gallery(props) {
 
+function Gallery(props){
+  const data = useContext(DataContext)
 
-  return (
-    <div>
-      <h1>Gallery Test</h1>
-  {<GalleryItem /> /* change to display once map is running  */}
-  </div>
-  )
-};
-export default Gallery;
+    const display = props.data.map((item, index) => {
+        return (
+            <GalleryItem item={item} key={index} />
+        )
+    })
+
+    return (
+        <div>
+            {display}
+        </div>
+    )
+}
+
+export default Gallery
