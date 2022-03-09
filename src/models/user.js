@@ -30,7 +30,6 @@ module.exports = (sequelize, DataTypes) => {
     },
     total_due: {
         type: DataTypes.INTEGER,
-        allowNull: false
     }
   }, {
     sequelize,
