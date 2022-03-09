@@ -9,7 +9,11 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate() {
+    static associate({ Rental }) {
+      User.hasMany(Rental, {
+        foreignKey: "username",
+        as: "holder"
+      });
         
     }
   }
@@ -19,7 +23,6 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       autoIncrement: true
     },
-    
     username: {
         type: DataTypes.STRING,
         allowNull: false
