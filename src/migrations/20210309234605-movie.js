@@ -5,26 +5,25 @@ module.exports = {
       movie_id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
-        autoIncrement: true
+        autoIncrement: true,
       },
       title: {
-          type: Sequelize.STRING,
-          allowNull: false
+        type: Sequelize.STRING,
+        allowNull: false,
       },
-      mover_cover: {
-          type: Sequelize.STRING,
-          
+      movie_cover: {
+        type: Sequelize.STRING,
       },
       synopsis: {
-          type: Sequelize.TEXT,
-          
+        type: Sequelize.TEXT,
       },
       year_released: {
-          type: Sequelize.INTEGER,
-          
-      }
+        type: Sequelize.INTEGER,
+      },
     });
+
   },
+
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable("Movie");
   },

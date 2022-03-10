@@ -10,11 +10,11 @@ module.exports = (sequelize, DataTypes) => {
     static associate({ Movie, User }) {
       Rental.belongsTo(Movie, {
         foreignKey: "movie_id",
-        as: "movie_id"
+        as: "movie_id",
       });
       Rental.belongsTo(User, {
         foreignKey: "username",
-        as: "holder"
+        as: "holder",
       });
     }
   }
