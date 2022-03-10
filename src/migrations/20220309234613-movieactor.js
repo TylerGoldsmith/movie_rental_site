@@ -9,13 +9,19 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       movie_id: {
-        type: Sequelize.SMALLINT,
-        allowNull: false
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Movie",
+          key: "movie_id",
+        },
       },
       actor_id: {
-        type: Sequelize.SMALLINT,
-        allowNull: false
-      }
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Actor",
+          key: "actor_id",
+        },
+      },
     });
   },
   down: async (queryInterface, Sequelize) => {

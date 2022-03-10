@@ -7,6 +7,13 @@ module.exports = {
         primaryKey: true,
         autoIncrement: true,
       },
+      movie_id: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "Movie",
+          key: "movie_id",
+        },
+      },
       last_updated: {
         type: Sequelize.DATE,
         allowNull: false,
@@ -14,6 +21,13 @@ module.exports = {
       cost: {
         type: Sequelize.INTEGER,
         allowNull: false,
+      },
+      holder: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: "User",
+          key: "user_id",
+        }
       }
     });
   },

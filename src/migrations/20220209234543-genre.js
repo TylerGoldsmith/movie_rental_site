@@ -11,6 +11,14 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false,
       },
+      movie_id: {
+        type: Sequelize.INTEGER,
+        onDelete: 'CASCADE',
+        references: {
+          model: "Movie",
+          key: "movie_id",
+        },
+      },
       cost: {
         type: Sequelize.INTEGER,
         allowNull: false,
