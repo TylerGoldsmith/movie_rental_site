@@ -8,8 +8,9 @@ const GalleryItem = () => {
         <h1>
           Gallery Item Test
           </h1>
-          <MovieDetails />
-          <p><a href="/movie/`${movie_id}`">Movie Page</a></p>
+          <MovieDetails key={i}/>
+          {/* <p><a href=`/movie/${movie_id}`>Movie Page</a></p> */}
+          
           </div>
   )
 };

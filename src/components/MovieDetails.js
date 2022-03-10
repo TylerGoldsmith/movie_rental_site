@@ -36,6 +36,8 @@ function MovieDetails(props) {
       </div>
     )
   })
+  console.log(renderMovieDetails)
+  console.log(movieData)
 
   // what gets shown
   return (
