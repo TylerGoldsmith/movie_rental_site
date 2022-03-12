@@ -1,6 +1,7 @@
 // dependencies
 import React, {useState, useEffect} from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom'
+
 // import styling
 import "./App.css";
 // import components
@@ -11,13 +12,14 @@ import ActorDetails from "./components/ActorDetails"
 
 // render app
 function App() {
+<<<<<<< HEAD
   let [searchTerm, setSearchTerm] = useState('')
   let [data, setData] = useState([])
   let [message, setMessage] = useState('Movie Rentals')
 
   useEffect(() => {
     if (searchTerm) {
-      document.title=`${searchTerm} Music`
+      document.title=`${searchTerm} Movie`
       const fetchData = async () => {
         const response = await fetch(`PG_URI${searchTerm}`)
         const resData = await response.json()
@@ -30,11 +32,9 @@ function App() {
       fetchData()
     }
   }, [searchTerm])
+=======
+>>>>>>> 4829f45459ac40a92bac8a8be657145a1d369665
 
-  const handleSearch = (e, term) => {
-    e.preventDefault()
-    setSearchTerm(term)
-  }
 
   return (
     <div className="App">
