@@ -2,11 +2,11 @@
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    return queryInterface.bulkInsert('Genres', [{
+    return queryInterface.bulkInsert('Genre', [{
       genre_name: 'genre name dummy data',
     }]);
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('Genres', null, {});
+    return queryInterface.bulkDelete('Genre', null, {});
   }
 };
