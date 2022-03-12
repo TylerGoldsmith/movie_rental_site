@@ -7,9 +7,9 @@ function MovieDetails(props) {
   const { movie_id } = useParams();
   const [movieData, setMovieData] = useState([]);
 
-  // get Actor in db
+  // get movie in db
   useEffect(() => {
-    const API_URL = `PGURI/${movie_id}`;
+    const API_URL = `PG_URI${movie_id}`;
     const fetchData = async () => {
       const response = await fetch(API_URL);
       const resData = await response.json();

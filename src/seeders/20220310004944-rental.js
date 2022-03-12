@@ -2,12 +2,12 @@
 
 module.exports = {
   async up (queryInterface, Sequelize) {
-    return queryInterface.bulkInsert('Rentals', [{
-      last_updated: 'dummy data rental update',
-      cost: 'rental cost dummy data'
+    return queryInterface.bulkInsert('Rental', [{
+      last_updated: '0001-01-01',
+      cost: '00'
     }]);
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('Rentals', null, {});
+    return queryInterface.bulkDelete('Rental', null, {});
   }
 };

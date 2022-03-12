@@ -9,7 +9,7 @@ function ActorDetails(props) {
 
   // get Actor in db
   useEffect(() => {
-    const API_URL = `PGURI/${actor_id}`;
+    const API_URL = `PG_URI${actor_id}`;
     const fetchData = async () => {
       const response = await fetch(API_URL);
       const resData = await response.json();
