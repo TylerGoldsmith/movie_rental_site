@@ -6,7 +6,7 @@ module.exports = {
       title: 'title dummy data',
       movie_cover: 'movie cover dummy data',
       synopsis: 'synopsis dummy data',
-      year_released: '0000'
+      year_released: '1'
     }]);
   },
   down: (queryInterface, Sequelize) => {

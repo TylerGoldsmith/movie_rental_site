@@ -5,7 +5,7 @@ module.exports = {
     return queryInterface.bulkInsert('User', [{
       username: 'username dummy data',
       password: 'password dummy data',
-      total_due: '00'
+      total_due: '1'
     }]);
   },
   down: (queryInterface, Sequelize) => {

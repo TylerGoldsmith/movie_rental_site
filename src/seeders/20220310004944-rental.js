@@ -3,8 +3,8 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
     return queryInterface.bulkInsert('Rental', [{
-      last_updated: '0001-01-01',
-      cost: '00'
+      last_updated: '01/02/03	',
+      cost: '1'
     }]);
   },
   down: (queryInterface, Sequelize) => {
