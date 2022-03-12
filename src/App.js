@@ -12,7 +12,6 @@ import ActorDetails from "./components/ActorDetails"
 
 // render app
 function App() {
-<<<<<<< HEAD
   let [searchTerm, setSearchTerm] = useState('')
   let [data, setData] = useState([])
   let [message, setMessage] = useState('Movie Rentals')
@@ -32,8 +31,6 @@ function App() {
       fetchData()
     }
   }, [searchTerm])
-=======
->>>>>>> 4829f45459ac40a92bac8a8be657145a1d369665
 
 
   return (
