@@ -19,8 +19,6 @@ const GalleryItem = (props) => {
         };
         fetchData();
     }, [Movie]);
-
-
   return(
       <div>
           <h1>Gallery Item Test</h1>
