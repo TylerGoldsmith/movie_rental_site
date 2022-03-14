@@ -1,6 +1,9 @@
 // dependencies
-import React, { useState, useEffect, useRef } from "react";
-import { Route, Routes, BrowserRouter } from "react-router-dom";
+
+import React, { useState, useEffect } from 'react';
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+
+
 
 // import styling
 import "./App.css";
@@ -17,6 +20,7 @@ function App() {
   let [data, setData] = useState([]);
   let [message, setMessage] = useState("Movie Rentals");
   let searchInput = useRef("");
+
 
   useEffect(() => {
     if (searchTerm) {
@@ -35,32 +39,34 @@ function App() {
   }, [searchTerm]);
 
   return (
+
     <div className="App">
-      {message}
       <BrowserRouter>
+        <Searchbar />
         <Routes>
-          <Route
-            exact
-            path="/"
-            element={
-              <div>
-                <SearchContext.Provider
-                  value={{
-                    term: searchInput,
-                    handleSearch: searchTerm,
-                  }}
-                >
-                  <Searchbar />
-                </SearchContext.Provider>
-                <Gallery data={data} />
-              </div>
-            }
-          />
-          <Route path="/movie/:movie_id" element={<MovieDetails />} />
-          <Route path="/actor/:actor_id" element={<ActorDetails />} />
+          <Route exact path="/" element={
+            <div>
+
+              <Gallery data={data} />
+            </div>
+          } />
+          <Route path="/movie/:movie_id" element={
+            <div>
+
+              <MovieDetails />
+            </div>
+          } />
+          <Route path="/actor/:actor_id" element={
+            <div>
+
+              <ActorDetails />
+            </div>
+          } />
+
         </Routes>
       </BrowserRouter>
     </div>
+
   );
 }
 // export
