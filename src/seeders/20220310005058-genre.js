@@ -1,12 +1,14 @@
-'use strict';
+"use strict";
 
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    return queryInterface.bulkInsert('Genre', [{
-      genre_name: 'genre name dummy data',
-    }]);
+  async up(queryInterface, Sequelize) {
+    return queryInterface.bulkInsert("Genre", [
+      {
+        genre_name: "drama",
+      },
+    ]);
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('Genre', null, {});
-  }
+    return queryInterface.bulkDelete("Genre", null, {});
+  },
 };
