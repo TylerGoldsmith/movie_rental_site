@@ -1,26 +1,25 @@
 // dependencies
-import React, { useState } from 'react';
-import  { useNavigate } from 'react-router';
+import { useState } from 'react';
+import { useParams } from 'react-router-dom'
 
 // searchbar
-const Searchbar = (props) => {
+function Searchbar() {
     const [searchTerm, setSearchTerm] = useState('');
 
-    let navigate = useNavigate();
-
-    const searchRoute = () => {
-        let path = `/search`;
-        navigate(path);
+    const handleSubmit = (e) => {
+        e.preventDefault()
     }
 
     return (
-            <form onSubmit={(e) => props.handleSearch(e, searchTerm)}>
-                <input type="text" 
-                    placeholder="Search Our Movie Library Here" 
-                    onChange={(e) => setSearchTerm(e.target.value)} />
-                <input type="submit"
-                    onClick={searchTerm} />
-            </form>
+        <form onSubmit={handleSubmit}>
+            <input type="text"
+                placeholder="Search Our Movie Library Here"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)} />
+            <input type="submit"
+                onClick ={() => console.log('hi')}
+                />
+        </form>
     )
 }
 export default Searchbar

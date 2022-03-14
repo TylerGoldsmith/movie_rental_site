@@ -1,23 +1,24 @@
 // dependencies
 import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom';
+// components
+import Searchbar from './Searchbar';
 
 
 function MovieDetails(props) {
-  const { movie_id } = useParams();
-  const [movieData, setMovieData] = useState([]);
+    let { Movie } = props.Searchbar.searchTerm;
+    let [movieData, setMovieData] = useState([]);
 
-  // get movie in db
-  useEffect(() => {
-    const API_URL = `PG_URI${movie_id}`;
-    const fetchData = async () => {
-      const response = await fetch(API_URL);
-      const resData = await response.json();
-      console.log(resData)
-      setMovieData(resData.results);
-    };
-    fetchData();
-  }, [movie_id]);
+    useEffect(() => {
+        const API_URL = `PG_URI${Movie}`;
+        const fetchData = async () => {
+            const response = await fetch(API_URL);
+            const resData = await response.json();
+            console.log(resData)
+            setMovieData(resData.results);
+        };
+        fetchData();
+    }, [Movie]);
 
   // to be changed
   // render actor detail
@@ -31,13 +32,14 @@ function MovieDetails(props) {
           <br />
           {movieMap.year_released}
           <br />
+          <p>test</p>
           {/* make array of actors with links */}
         </p>
       </div>
     )
   })
-  console.log(renderMovieDetails)
-  console.log(movieData)
+  console.log(renderMovieDetails + "moviedetails")
+  console.log(movieData + "moviedata")
 
   // what gets shown
   return (
@@ -47,3 +49,10 @@ function MovieDetails(props) {
   )
 };
 export default MovieDetails;
+
+// let navigate = useNavigate();
+// const routeSearch = () => {
+//     let path = `/movie/${props.Movie}`;
+//     navigate(path);
+//     console.log(Searchbar.props.searchTerm)
+// };
