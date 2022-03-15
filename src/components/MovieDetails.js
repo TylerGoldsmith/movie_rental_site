@@ -1,9 +1,8 @@
 // dependencies
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 // components
-import Searchbar from './Searchbar';
-
+import Searchbar from "./Searchbar";
 
 function MovieDetails(props) {
     let { Movie } = props.Searchbar.searchTerm;
@@ -19,35 +18,22 @@ function MovieDetails(props) {
         };
         fetchData();
     }, [Movie]);
-
-  // to be changed
-  // render actor detail
-  const renderMovieDetails = movieData.map((movieMap, i) => {
-    return (
-      <div key={i}>
-        <p>
-          {movieMap.title}
-          <br />
-          {movieMap.synopsis}
-          <br />
-          {movieMap.year_released}
-          <br />
-          <p>test</p>
-          {/* make array of actors with links */}
-        </p>
-      </div>
-    )
-  })
-  console.log(renderMovieDetails + "moviedetails")
-  console.log(movieData + "moviedata")
-
-  // what gets shown
+  
   return (
-    <div>
-      <h1>{renderMovieDetails}</h1>
+    <div key={i}>
+      <p>
+        {movieMap.title}
+        <br />
+        {movieMap.synopsis}
+        <br />
+        {movieMap.year_released}
+        <br />
+        <p>test</p>
+        {/* make array of actors with links */}
+      </p>
     </div>
-  )
-};
+  );
+}
 export default MovieDetails;
 
 // let navigate = useNavigate();
