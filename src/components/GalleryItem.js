@@ -1,6 +1,7 @@
 // dependencies
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 // components
 import MovieDetails from "./MovieDetails";
 import Searchbar from "./Searchbar";
@@ -27,7 +28,9 @@ const GalleryItem = (props) => {
           <br />
           {movieMap.year_released}
           <br />
-          <p>link to movie details</p>
+          <Link to={`/movue/${props.item.artistId}`}>
+            {props.item.artistName}
+          </Link>
         </p>
       </div>
     );
