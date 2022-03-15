@@ -1,11 +1,10 @@
 // dependencies
-import { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom'
-
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 function ActorDetails(props) {
   const { actor_id } = useParams();
-  const [ actorData, setActorData] = useState([]);
+  const [actorData, setActorData] = useState([]);
 
   // get Actor in db
   useEffect(() => {
@@ -13,7 +12,7 @@ function ActorDetails(props) {
     const fetchData = async () => {
       const response = await fetch(API_URL);
       const resData = await response.json();
-      console.log(resData)
+      console.log(resData);
       setActorData(resData.results);
     };
     fetchData();
@@ -22,7 +21,7 @@ function ActorDetails(props) {
   // to be changed
   // render actor detail
   const renderActorDetails = actorData.map((actorMap, i) => {
-    return(
+    return (
       <div key={i}>
         <p>
           {actorMap.name}
@@ -30,14 +29,14 @@ function ActorDetails(props) {
           {actorMap.bio}
         </p>
       </div>
-    )
-  })
+    );
+  });
 
   // what gets shown
-  return(
+  return (
     <div>
-    <h1>{renderActorDetails}</h1>
-  </div>
-    )
-};
+      <h1>{renderActorDetails}</h1>
+    </div>
+  );
+}
 export default ActorDetails;
