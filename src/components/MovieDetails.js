@@ -10,7 +10,7 @@ function MovieDetails(props) {
     let [movieData, setMovieData] = useState([]);
 
     useEffect(() => {
-        const API_URL = `PG_URI${Movie}`;
+        const API_URL = `${process.env.PG_URI}/${Movie}`;
         const fetchData = async () => {
             const response = await fetch(API_URL);
             const resData = await response.json();
