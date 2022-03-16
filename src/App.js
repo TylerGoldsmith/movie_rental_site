@@ -1,9 +1,7 @@
 // dependencies
 
-import React, { useState, useEffect } from 'react';
-import { Route, Routes, BrowserRouter } from 'react-router-dom';
-
-
+import React, { useState, useEffect, useRef } from "react";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 // import styling
 import "./App.css";
@@ -21,7 +19,6 @@ function App() {
   let [message, setMessage] = useState("Movie Rentals");
   let searchInput = useRef("");
 
-
   useEffect(() => {
     if (searchTerm) {
       document.title = `${searchTerm} Movie`;
@@ -29,7 +26,7 @@ function App() {
         const response = await fetch(`PG_URI${searchTerm}`);
         const resData = await response.json();
         if (resData.results.length > 0) {
-          setData(resData.results); 
+          setData(resData.results);
         } else {
           setMessage("Not Found");
         }
@@ -39,34 +36,38 @@ function App() {
   }, [searchTerm]);
 
   return (
-
     <div className="App">
       <BrowserRouter>
         <Searchbar />
         <Routes>
-          <Route exact path="/" element={
-            <div>
-
-              <Gallery data={data} />
-            </div>
-          } />
-          <Route path="/movie/:movie_id" element={
-            <div>
-
-              <MovieDetails />
-            </div>
-          } />
-          <Route path="/actor/:actor_id" element={
-            <div>
-
-              <ActorDetails />
-            </div>
-          } />
-
+          <Route
+            exact
+            path="/"
+            element={
+              <div>
+                <Gallery data={data} />
+              </div>
+            }
+          />
+          <Route
+            path="/movie/:movie_id"
+            element={
+              <div>
+                <MovieDetails />
+              </div>
+            }
+          />
+          <Route
+            path="/actor/:actor_id"
+            element={
+              <div>
+                <ActorDetails />
+              </div>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </div>
-
   );
 }
 // export
