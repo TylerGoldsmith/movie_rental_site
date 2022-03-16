@@ -5,7 +5,6 @@ import { Route, Routes, BrowserRouter } from 'react-router-dom';
 import { DataContext } from "./context/DataContext";
 
 
-
 // import styling
 import "./App.css";
 // import components
@@ -22,7 +21,6 @@ function App() {
   let [data, setData] = useState([]);
   let [message, setMessage] = useState("Movie Rentals");
   let searchInput = useRef("");
-
 
   useEffect(() => {
     if (searchTerm) {
@@ -41,7 +39,6 @@ function App() {
   }, [searchTerm]);
 
   return (
-
     <div className="App">
       <BrowserRouter>
       <SearchContext.Provider
@@ -76,9 +73,9 @@ function App() {
             } />
 
           </Routes>
+
       </BrowserRouter>
     </div>
-
   );
 }
 // export
