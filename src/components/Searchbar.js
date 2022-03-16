@@ -1,23 +1,23 @@
 // dependencies
-import { useState } from "react";
+import { useContext } from "react";
+import { SearchContext } from "../context/SearchContext";
 
 // searchbar
 function Searchbar() {
-  const [searchTerm, setSearchTerm] = useState("");
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-  };
+  const { term, handleSearch } = useContext(SearchContext);
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form>
       <input
         type="text"
         placeholder="Search Our Movie Library Here"
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
+        ref={term}
+        onChange={(e) => handleSearch(e, term.current.value)}
       />
-      <input type="submit" onClick={() => console.log("hi")} />
+      <button onClick={(e) => handleSearch(e, term.current.value)}>
+        Search
+      </button>
     </form>
   );
 }
