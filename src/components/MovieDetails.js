@@ -1,8 +1,6 @@
 // dependencies
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 // components
-import Searchbar from "./Searchbar";
 
 function MovieDetails(props) {
     let { Movie } = Searchbar.props.searchTerm;
@@ -24,9 +22,9 @@ function MovieDetails(props) {
       <p>
         {/* {movieMap.title}
         <br />
-        {movieMap.synopsis}
+        {movieData.synopsis}
         <br />
-        {movieMap.year_released}
+        {movieData.year_released}
         <br />
         <p>test</p> */}
         {/* make array of actors with links */}
