@@ -1,6 +1,5 @@
 // dependencies
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 // components
 
 function MovieDetails(props) {
