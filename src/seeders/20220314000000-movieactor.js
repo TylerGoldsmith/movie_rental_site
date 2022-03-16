@@ -6,10 +6,12 @@ module.exports = {
       {
         movie_id: 1,
         actor_id: 1,
+        actor_name: "John Whatshismane",
       },
       {
-        movie_id: 2,
-        actor_id: 1,
+        movie_id: 1,
+        actor_id: 2,
+        actor_name: "Bill Whatshismane"
       },
     ]);
   },

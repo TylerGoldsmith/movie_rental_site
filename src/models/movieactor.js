@@ -18,6 +18,10 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         autoIncrement: true,
       },
+      actor_name: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
       movie_id: DataTypes.INTEGER,
       actor_id: DataTypes.INTEGER,
     },

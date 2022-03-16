@@ -43,6 +43,10 @@ module.exports = (sequelize, DataTypes) => {
       year_released: {
         type: DataTypes.INTEGER,
       },
+      actor_name: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
     },
     {
       sequelize,

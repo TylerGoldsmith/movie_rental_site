@@ -21,6 +21,10 @@ module.exports = {
           model: "Actor",
           key: "actor_id",
         },
+        actor_name: {
+          type: Sequelize.STRING,
+          allowNull: false
+      },
       },
     });
   },

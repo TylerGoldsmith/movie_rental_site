@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
         primaryKey: true,
         autoIncrement: true,
       },
-      name: {
+      actor_name: {
         type: DataTypes.STRING,
         allowNull: false,
       },

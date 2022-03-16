@@ -8,6 +8,7 @@ module.exports = {
         movie_cover: "movie cover dummy data",
         synopsis: "The boat sinks in the end",
         year_released: "1997",
+        actor_name: ["Bill Whatshismane", "John Whatshismane"]
       },
     ]);
   },

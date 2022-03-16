@@ -20,6 +20,10 @@ module.exports = {
       year_released: {
         type: Sequelize.INTEGER,
       },
+      actor_name: {
+        type: Sequelize.STRING,
+        allowNull: false
+    },
     });
 
   },

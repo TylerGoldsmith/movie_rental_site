@@ -7,7 +7,7 @@ module.exports = {
         primaryKey: true,
         autoIncrement: true
       },
-      name: {
+      actor_name: {
           type: Sequelize.STRING,
           allowNull: false
       },

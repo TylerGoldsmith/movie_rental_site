@@ -1,7 +1,8 @@
 // dependencies
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Route, Routes, BrowserRouter } from 'react-router-dom';
+import { DataContext } from "./context/DataContext";
 
 
 
@@ -13,6 +14,7 @@ import Searchbar from "./components/Searchbar";
 import MovieDetails from "./components/MovieDetails";
 import ActorDetails from "./components/ActorDetails";
 import { SearchContext } from "./context/SearchContext";
+import { search } from './controllers/actors_controller';
 
 // render app
 function App() {
@@ -26,10 +28,10 @@ function App() {
     if (searchTerm) {
       document.title = `${searchTerm} Movie`;
       const fetchData = async () => {
-        const response = await fetch(`PG_URI${searchTerm}`);
+        const response = await fetch(`${process.env.PG_URI}/${searchTerm}`);
         const resData = await response.json();
         if (resData.results.length > 0) {
-          setData(resData.results); 
+          setData(resData.results);
         } else {
           setMessage("Not Found");
         }
@@ -42,28 +44,38 @@ function App() {
 
     <div className="App">
       <BrowserRouter>
-        <Searchbar />
-        <Routes>
-          <Route exact path="/" element={
-            <div>
+      <SearchContext.Provider
+                  value={{
+                    term: searchInput,
+                    handleSearch: handleSearch,
+                  }}
+                >
+                  <Searchbar />
+                </SearchContext.Provider>
 
-              <Gallery data={data} />
-            </div>
-          } />
-          <Route path="/movie/:movie_id" element={
-            <div>
 
-              <MovieDetails />
-            </div>
-          } />
-          <Route path="/actor/:actor_id" element={
-            <div>
+          <Routes>
+            <Route exact path="/" element={
+              <div>
+                <DataContext.Provider>
+                  <Gallery data={data} />
+                </DataContext.Provider>
+              </div>
+            } />
+            <Route path="/movie/:movie_id" element={
+              <div>
 
-              <ActorDetails />
-            </div>
-          } />
+                <MovieDetails />
+              </div>
+            } />
+            <Route path="/actor/:actor_id" element={
+              <div>
 
-        </Routes>
+                <ActorDetails />
+              </div>
+            } />
+
+          </Routes>
       </BrowserRouter>
     </div>
 
