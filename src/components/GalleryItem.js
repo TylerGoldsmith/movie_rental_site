@@ -1,17 +1,15 @@
 // dependencies
-import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // components
-import MovieDetails from "./MovieDetails";
 import Searchbar from "./Searchbar";
 
 const GalleryItem = (props) => {
-  let { Movie } = props.Searchbar.searchTerm;
+  let { Movie } = Searchbar.props.searchTerm;
   let [movieData, setMovieData] = useState([]);
 
   useEffect(() => {
-    const API_URL = `PG_URI${Movie}`;
+    const API_URL = `${process.env.PG_URI}/${Movie}`;
     const fetchData = async () => {
       const response = await fetch(API_URL);
       const resData = await response.json();
@@ -24,12 +22,10 @@ const GalleryItem = (props) => {
     return (
       <div key={i}>
         <p>
-          {movieMap.title}
-          <br />
           {movieMap.year_released}
           <br />
-          <Link to={`/movue/${props.item.artistId}`}>
-            {props.item.artistName}
+          <Link to={`/movie/${props.item.title}`}>
+            {props.item.title}
           </Link>
         </p>
       </div>

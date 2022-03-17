@@ -22,7 +22,7 @@ movies.get('/', async (req, res) => {
 // find a specific movie by title
 movies.get('/:title', async (req, res) => {
     try {
-        const foundMovie = await Movie.findOne({
+        const foundMovies = await Movie.findOne({
             where: { title: req.params.name },
             include: [
                 { 
