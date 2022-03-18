@@ -24,7 +24,7 @@ function App() {
     if (searchTerm) {
       document.title = `${searchTerm} Movie`;
       const fetchData = async () => {
-        const response = await fetch(`${process.env.PG_URI}/${searchTerm}`);
+        const response = await fetch(`${process.env.REACT_APP_PG_URI}/${searchTerm}`);
         const resData = await response.json();
         if (resData.results.length > 0) {
           setData(resData.results); 
